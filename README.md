@@ -4,11 +4,11 @@
   <img src="https://img.shields.io/badge/Next.js%2016-App%20Router-black?style=for-the-badge&logo=next.js" alt="Next.js 16" />
   <img src="https://img.shields.io/badge/TypeScript-5.x-blue?style=for-the-badge&logo=typescript" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Tailwind%20CSS-v4-38bdf8?style=for-the-badge&logo=tailwindcss" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/Turbopack-Enabled-0ea5e9?style=for-the-badge" alt="Turbopack" />
+  <img src="https://img.shields.io/badge/Theme-Dark%20Monospace-18181b?style=for-the-badge" alt="Theme" />
   <img src="https://img.shields.io/badge/Status-Live%20Production-emerald?style=for-the-badge" alt="Status" />
 </p>
 
-A modern, high-performance personal developer portfolio built for **Emil V Saji**, a full-stack web developer based in Kerala, India. The site is engineered to function as a live, credible developer profile featuring real-time client-side GitHub integrations, an electric blue contribution heatmap, live commit feeds, interactive skill filtering, and subtle glassmorphic aesthetics.
+A modern, high-performance personal developer portfolio built for **Emil V Saji**, a full-stack web developer based in Kerala, India. The site is engineered to function as a live, credible developer profile featuring a sleek dark theme (`#0a0a0a` / `#000000`), a universal monospace typography system (`JetBrains Mono`), flat bordered cards with subtle `1px` borders (`rgba(255,255,255,0.08)`), real-time client-side GitHub integrations, and curated multi-color brand accents.
 
 ---
 
@@ -17,7 +17,7 @@ A modern, high-performance personal developer portfolio built for **Emil V Saji*
 - [Design Philosophy & System](#-design-philosophy--system)
   - [Color Palette](#color-palette)
   - [Typography System](#typography-system)
-  - [Glassmorphism & Elevation](#glassmorphism--elevation)
+  - [Flat Dark Design & Elevation](#flat-dark-design--elevation)
   - [Motion & Accessibility](#motion--accessibility)
 - [Information Architecture & Sections](#-information-architecture--sections)
 - [Client-Side Live Integrations](#-client-side-live-integrations)
@@ -32,55 +32,53 @@ A modern, high-performance personal developer portfolio built for **Emil V Saji*
 
 ## 🎨 Design Philosophy & System
 
-The visual identity is inspired by clean developer-first profiles, emphasizing credible engineering output over generic SaaS templates.
+The visual identity is inspired by clean developer-first profiles and minimalist engineering aesthetics, emphasizing credible engineering output over generic SaaS templates.
 
 ### Color Palette
 
-| Token Name | Hex Code | Usage |
+| Token Name | Hex / RGBA Code | Usage |
 | :--- | :--- | :--- |
-| **Base Background** | `#ffffff` | Primary canvas and root background |
-| **Surface Subtle** | `#f8fafc` | Card backgrounds, timeline lanes, section alternates |
-| **Surface Accent** | `#f1f5f9` | Tag pills, badge containers, legend items |
-| **Border Default** | `#e2e8f0` | Card borders, dividers, subtle separators |
-| **Border Hover** | `#93c5fd` | Interactive card hover borders |
-| **Primary Accent** | `#2563eb` | Primary buttons, active tabs, brand highlights |
-| **Electric Blue** | `#3b82f6` | Links, icons, live status beacons |
-| **Gradient Accent** | `#6366f1` → `#8b5cf6` | Restrained text gradient highlights on hero names |
-| **Text Primary** | `#0f172a` | Headings and high-contrast body copy |
-| **Text Muted** | `#475569` | Secondary descriptions, subheadings |
-| **Text Subtle** | `#94a3b8` | Timestamps, metadata, small tags |
+| **Base Background** | `#0a0a0a` | Primary canvas and root document background |
+| **Surface Dark** | `#121212` | Flat cards, terminal shells, timeline panels |
+| **Surface Highlight** | `#18181b` / `#27272a` | Active tabs, tag containers, legend items |
+| **Border Default** | `rgba(255, 255, 255, 0.08)` | Flat card borders, section dividers, row separators |
+| **Border Hover** | `rgba(255, 255, 255, 0.16)` | Interactive card hover borders |
+| **Text Primary** | `#f5f5f5` | Headings, project titles, and high-contrast labels |
+| **Text Body** | `#a1a1aa` | Descriptions, role summaries, and copy text |
+| **Text Dimmer / Meta** | `#71717a` | Timestamps, dates, locations, subtle metadata |
+| **Brand Accents** | Muted Colors | Distinct color per item/brand (Blue, Emerald, Amber, Purple, Cyan) |
 
 #### GitHub Heatmap Color Scale
 
-Unlike standard GitHub green, this portfolio features a custom blue-intensity ramp:
+A high-contrast dark mode contribution intensity ramp:
 
-- **Level 0 (No activity)**: `#f1f5f9`
-- **Level 1 (1–2 commits)**: `#dbeafe`
-- **Level 2 (3–4 commits)**: `#93c5fd`
-- **Level 3 (5–7 commits)**: `#3b82f6`
-- **Level 4 (8+ commits)**: `#1d4ed8`
+- **Level 0 (No activity)**: `#18181b`
+- **Level 1 (1–2 commits)**: `#0e4429`
+- **Level 2 (3–4 commits)**: `#006d32`
+- **Level 3 (5–7 commits)**: `#26a641`
+- **Level 4 (8+ commits)**: `#39d353`
 
 ---
 
 ### Typography System
 
-- **Display & Headings**: `Outfit` / `Poppins` (`font-display`) — geometric, clean, modern character for section titles.
-- **Body Copy & UI**: `Inter` (`font-sans`) — optimized legibility across desktop, tablet, and mobile displays.
-- **Metrics & Code**: `JetBrains Mono` (`font-mono`) — used for commit hashes, timestamps, repository links, and tech pills.
+- **Universal Typeface**: `JetBrains Mono` (`font-mono`) — applied across **all** headings, body copy, badges, buttons, metrics, and navigation for a cohesive developer aesthetic.
+- **Weights**: Regular (400) for body/metadata, Medium (500) for UI labels, SemiBold/Bold (600/700) for headings and project titles.
 
 ---
 
-### Glassmorphism & Elevation
+### Flat Dark Design & Elevation
 
-- **Navbar**: `background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);` with a 1px border.
-- **Cards**: Soft multi-layered shadows (`0 1px 3px rgba(0,0,0,0.04)`) elevating to (`0 12px 24px -4px rgba(37,99,235,0.08)`) on hover with a `-2px` translateY lift.
-- **Status Beacons**: Dual-ring pulsing green indicator for availability status.
+- **Navbar**: Flat dark header (`background: rgba(10, 10, 10, 0.95); border-bottom: 1px solid rgba(255, 255, 255, 0.08);`).
+- **Cards**: Flat dark surfaces (`#121212`) with crisp 1px borders (`rgba(255, 255, 255, 0.08)`) instead of heavy shadows or glass blur.
+- **Buttons**: Flat dark pill and icon buttons (`bg-zinc-900`, `border-white/[0.08]`) with subtle hover transitions.
+- **Status Beacons**: Pulsing emerald indicators for real-time availability.
 
 ---
 
 ### Motion & Accessibility
 
-- **Intersection Observer**: Smooth scroll reveal transitions and dynamic active navbar tracking.
+- **Intersection Observer**: Dynamic active navigation tracking as the user scrolls.
 - **Respects `prefers-reduced-motion`**: Animations and smooth scroll transitions are automatically disabled for users requesting reduced motion.
 - **Semantic HTML & ARIA**: Full keyboard navigation, descriptive labels, and screen-reader accessible tags.
 
@@ -88,7 +86,7 @@ Unlike standard GitHub green, this portfolio features a custom blue-intensity ra
 
 ## 🏛️ Information Architecture & Sections
 
-The single-page layout follows a strictly planned 9-section structure:
+The single-page layout follows a structured 9-section flow:
 
 1. **Header & Floating Navigation (`Navbar.tsx`)**:
    - Brand logo badge with live availability pulse.
@@ -97,49 +95,51 @@ The single-page layout follows a strictly planned 9-section structure:
    - Quick "Hire Me" mailto CTA and responsive mobile drawer.
 
 2. **Hero Section (`Hero.tsx`)**:
-   - Availability badge with live location chip (`Kerala, India`).
-   - High-contrast gradient heading and concise full-stack developer bio.
-   - One-click copy email button with instant toast notification.
-   - Resume download action and social links (GitHub, LinkedIn, Email, Phone).
-   - Profile avatar frame with "1st Place UI/UX" achievement badge.
+   - Monospace greeting: `Hi, I'm Emil V Saji`.
+   - Subheading line: `21yo Full-Stack Web Developer from Kerala, India`.
+   - Left-aligned text block with concise bio.
+   - Square rounded-corner profile avatar frame on the right with a subtle border.
+   - Flat dark icon/pill button row (Resume, LinkedIn, GitHub, X/Twitter, Email).
 
-3. **Work Timeline (`WorkTimeline.tsx`)**:
-   - Reverse-chronological experience with role tags and mode badges (Remote / Freelance):
-     - **InnoByte Services** — Web Developer Intern (Feb 2026 – Mar 2026)
-     - **ApexPlanet Software Pvt Ltd** — Web Developer Intern (Dec 2025 – Feb 2026)
-     - **CatchMyBus** — Full Stack Developer / Freelance (Nov 2025 – Dec 2025)
-   - Bulleted achievements and tech stack tags for each position.
+3. **Work & Education Experience (`WorkTimeline.tsx`)**:
+   - Two-tab toggle switcher at top: **"Work"** / **"Education"**.
+   - Small square company/brand logo icons on the left with distinct brand colors.
+   - Role + Company Name in white, role subtitle in gray underneath.
+   - Right-aligned date ranges and location + work mode badges.
+   - Clean horizontal divider lines between rows.
 
 4. **GitHub Contribution Graph (`GitHubContributions.tsx`)**:
-   - 52-week (364-day) heatmap dynamically rendered with custom blue palette.
-   - Live metrics: Total Year Contributions, Current Active Streak, and Active Days.
+   - 52-week (364-day) dark-mode heatmap dynamically rendered.
+   - Live metrics: Total Year Commits, Current Active Streak, and Active Days.
    - Custom floating tooltip showing date and commit count on cell hover.
    - Sync button to re-fetch live activity on demand.
 
 5. **Featured Projects (`FeaturedProjects.tsx`)**:
-   - 4 Project cards with browser mockup headers:
-     - **CatchMyBus** — Mobile-responsive bus search & route navigator (React, TS, Firebase) → [Live Demo](https://catch-my-bus.vercel.app)
-     - **CareerBridge** — Role-based full-stack job portal (PHP, MySQL, JS) → [Source Code](https://github.com/emilvsaji/CareerBridge)
-     - **Treasure Cove** — Gamified interactive treasure-hunt web app (JS, HTML5 Canvas) → [Source Code](https://github.com/emilvsaji/Treasure-Cove)
-     - **Harvast Spices** — E-commerce platform with search, filters & cart (PHP, MySQL, Tailwind) → [Source Code](https://github.com/emilvsaji/harvast)
+   - Header with "Projects" title + "Explore all projects →" outlined pill button.
+   - 2-column grid of featured projects with large raw preview thumbnails at top.
+   - All-caps dark pill tags for tech stack (`REACT`, `TYPESCRIPT`, `NODE.JS`, etc.).
+   - Source code and live website links at the bottom of each card.
+   - Projects: **CatchMyBus**, **CareerBridge**, **Treasure Cove**, **Harvast Spices**.
 
 6. **Development Feed (`DevelopmentFeed.tsx`)**:
    - Live commit stream connected to `api.github.com/users/emilvsaji/events`.
-   - Displays repository pill, commit message, commit SHA hash, and relative timestamps ("3 hours ago", "yesterday").
+   - Displays repository pill, commit message, commit SHA hash, and relative timestamps.
    - Live stream status beacon and refresh trigger with toast feedback.
 
-7. **Highlights & Achievements (`Achievements.tsx`)**:
-   - **ASTHRA 10.0 National Technical Fest (2025)**: 1st Place Winner 🏆 in Pixel Rush UI/UX Design.
-   - **NASA Space Apps Challenge (Oct 2025)**: Global Hackathon Participant 🚀.
+7. **Highlights (`Achievements.tsx`)**:
+   - Vertical stack of flat dark cards.
+   - Left thumbnail icon badge, top-right pill tags (`"1ST PLACE WINNER"`, `"GLOBAL PARTICIPANT"`) + year.
+   - **ASTHRA 10.0 National Technical Fest** (Pixel Rush UI/UX Design Winner).
+   - **NASA Space Apps Challenge** (Global Hackathon Participant).
 
 8. **Skills & Technologies (`Skills.tsx`)**:
    - Interactive category filter tabs (`All`, `Frontend`, `Backend`, `Database`, `Tools`).
-   - Categorized cards with proficiency levels and subtext notes.
+   - Categorized flat cards with colored square category icons, proficiency levels, and notes.
 
-9. **Contact, Education & Footer (`Contact.tsx` & `Footer.tsx`)**:
+9. **Contact & Footer (`Contact.tsx` & `Footer.tsx`)**:
    - One-click copy for email (`emilsaji48@gmail.com`) and phone (`+91 8078390442`).
-   - Academic background cards: **MG University, Kottayam** (BCA 2026) and **Holy Cross HSS** (Computer Science 2023).
-   - Footer with copyright info, social links, and smooth back-to-top button.
+   - Location and availability card (Kerala, India / Remote worldwide).
+   - Flat dark footer with social links and back-to-top button.
 
 ---
 
@@ -174,8 +174,8 @@ const timeStr = now.toLocaleTimeString("en-US", {
 - **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Icons**: [Lucide React](https://lucide.dev/) + Custom Self-Contained SVG Brand Icons
-- **Fonts**: [Google Fonts via Next.js Font Optimization](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) (`Inter`, `Outfit`, `JetBrains Mono`)
+- **Icons**: [Lucide React](https://lucide.dev/) + Custom SVG Brand Icons (GitHub, LinkedIn, X)
+- **Font**: [JetBrains Mono via Next.js Font Optimization](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
 - **Hosting Target**: [Vercel](https://vercel.com/) / Static Node Hosting
 
 ---
@@ -189,22 +189,22 @@ emilvsaji-portfolio/
 │   └── resume.pdf                     # Drop your downloadable resume here
 ├── src/
 │   ├── app/
-│   │   ├── globals.css                # Custom CSS tokens, heatmap levels & glassmorphism
-│   │   ├── layout.tsx                 # Root layout, Google fonts & SEO metadata
+│   │   ├── globals.css                # Dark theme tokens, heatmap palette & flat card styles
+│   │   ├── layout.tsx                 # Root layout, JetBrains Mono font & SEO metadata
 │   │   └── page.tsx                   # Main single-page application orchestrator
 │   └── components/
-│       ├── Achievements.tsx           # Award & hackathon recognition cards
-│       ├── Contact.tsx                # One-click copy contact & education cards
+│       ├── Achievements.tsx           # Vertical highlights stack with pill tags
+│       ├── Contact.tsx                # One-click copy contact & location cards
 │       ├── DevelopmentFeed.tsx        # Live GitHub commit activity stream
-│       ├── FeaturedProjects.tsx       # 4 project cards with mockup frames & links
-│       ├── Footer.tsx                 # Footer with back-to-top button
-│       ├── GitHubContributions.tsx    # Live contribution graph with blue palette
-│       ├── Hero.tsx                   # Hero section, avatar & bio
-│       ├── Icons.tsx                  # Clean SVG GitHub & LinkedIn brand icons
-│       ├── Navbar.tsx                 # Glassmorphic header with live Kerala clock
+│       ├── FeaturedProjects.tsx       # 2-column featured project cards & links
+│       ├── Footer.tsx                 # Dark footer with back-to-top button
+│       ├── GitHubContributions.tsx    # Live contribution graph with dark heatmap
+│       ├── Hero.tsx                   # Hero section, pixel/mono greeting & flat buttons
+│       ├── Icons.tsx                  # Clean SVG GitHub, LinkedIn, and X icons
+│       ├── Navbar.tsx                 # Flat dark header with live Kerala clock
 │       ├── Skills.tsx                 # Interactive categorized skill cards
-│       ├── Toast.tsx                  # Toast notification provider & hook
-│       └── WorkTimeline.tsx           # Reverse-chronological experience list
+│       ├── Toast.tsx                  # Dark toast notification provider & hook
+│       └── WorkTimeline.tsx           # Tabbed work & education timeline
 ├── next.config.ts                     # Next.js configuration
 ├── package.json                       # Dependencies and build scripts
 ├── postcss.config.mjs                 # PostCSS Tailwind configuration
@@ -245,7 +245,7 @@ When you are ready to add actual screenshots for your 4 featured projects:
    - `public/images/careerbridge.webp`
    - `public/images/treasurecove.webp`
    - `public/images/harvast.webp`
-2. Open [`src/components/FeaturedProjects.tsx`](src/components/FeaturedProjects.tsx) and add an `<img />` or Next.js `<Image />` component inside the mockup frame.
+2. Open [`src/components/FeaturedProjects.tsx`](src/components/FeaturedProjects.tsx) and add an `<img />` or Next.js `<Image />` component inside the card thumbnail header.
 
 ---
 
@@ -261,7 +261,7 @@ npm run start
 1. Push your repository to GitHub:
    ```bash
    git add .
-   git commit -m "feat: complete developer portfolio"
+   git commit -m "feat: complete dark monospace developer portfolio"
    git push origin main
    ```
 2. Import the repository into [Vercel](https://vercel.com/new).
@@ -283,3 +283,4 @@ npm run start
 <p align="center">
   Designed & Built with ❤️ by <b>Emil V Saji</b> · 2026
 </p>
+

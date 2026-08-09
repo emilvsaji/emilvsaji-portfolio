@@ -1,18 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Outfit, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
@@ -61,11 +49,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${outfit.variable} ${jetbrainsMono.variable} scroll-smooth antialiased`}
+      className={`${jetbrainsMono.variable} dark scroll-smooth antialiased`}
     >
-      <body className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+      <body className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] font-mono selection:bg-zinc-800 selection:text-white">
         {children}
       </body>
     </html>
   );
 }
+

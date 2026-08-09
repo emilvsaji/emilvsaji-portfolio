@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FolderGit2, ExternalLink, Sparkles, Bus, Briefcase, Compass, ShoppingBag } from "lucide-react";
+import { ArrowRight, ExternalLink, Bus, Briefcase, Compass, ShoppingBag } from "lucide-react";
 import { GitHubIcon } from "./Icons";
 
 interface ProjectItem {
@@ -11,13 +11,13 @@ interface ProjectItem {
   techStack: string[];
   liveUrl?: string;
   githubUrl: string;
-  icon: React.ReactNode;
+  category: string;
   accentColor: string;
-  highlight: string;
-  previewGraphic: {
-    title: string;
-    tag: string;
-    subtext: string;
+  icon: React.ReactNode;
+  previewVisual: {
+    label: string;
+    sublabel: string;
+    theme: string;
   };
 }
 
@@ -26,33 +26,33 @@ const projects: ProjectItem[] = [
     id: "catchmybus",
     title: "CatchMyBus",
     description:
-      "Mobile-responsive bus search and route discovery platform with real-time stops, schedules, and live transit filtering.",
-    techStack: ["React", "TypeScript", "Node.js", "Firebase", "Tailwind CSS"],
+      "Mobile-responsive bus search and route discovery platform with real-time stops, transit schedules, and live commuter filtering.",
+    techStack: ["REACT", "TYPESCRIPT", "NODE.JS", "FIREBASE", "TAILWIND CSS"],
     liveUrl: "https://catch-my-bus.vercel.app",
     githubUrl: "https://github.com/emilvsaji/CatchMyBus",
-    icon: <Bus className="w-5 h-5" />,
-    accentColor: "from-blue-600 to-cyan-500",
-    highlight: "Live Production App",
-    previewGraphic: {
-      title: "CatchMyBus • Live Route Navigator",
-      tag: "React + Firebase",
-      subtext: "Dynamic search & transit schedules",
+    category: "TRANSIT WEB APP",
+    accentColor: "bg-blue-500",
+    icon: <Bus className="w-5 h-5 text-blue-400" />,
+    previewVisual: {
+      label: "LIVE BUS TRACKER & ROUTE NAVIGATOR",
+      sublabel: "Real-time Firebase sync & schedule queries",
+      theme: "from-blue-950/50 via-zinc-900 to-zinc-950",
     },
   },
   {
     id: "careerbridge",
     title: "CareerBridge",
     description:
-      "Full-stack job portal with role-based access control (Job Seeker / Employer / Admin), application pipelines, and resume management.",
-    techStack: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3"],
+      "Full-stack job portal with role-based access control (Job Seeker / Employer / Admin), applicant tracking, and resume management.",
+    techStack: ["PHP", "MYSQL", "JAVASCRIPT", "HTML5", "CSS3"],
     githubUrl: "https://github.com/emilvsaji/CareerBridge",
-    icon: <Briefcase className="w-5 h-5" />,
-    accentColor: "from-indigo-600 to-blue-500",
-    highlight: "Role-Based Architecture",
-    previewGraphic: {
-      title: "CareerBridge Portal",
-      tag: "PHP • MySQL",
-      subtext: "Applicant tracking & employer dashboard",
+    category: "FULL-STACK PORTAL",
+    accentColor: "bg-indigo-500",
+    icon: <Briefcase className="w-5 h-5 text-indigo-400" />,
+    previewVisual: {
+      label: "ROLE-BASED RECRUITMENT PORTAL",
+      sublabel: "RBAC pipelines, applicant metrics & employer tools",
+      theme: "from-indigo-950/50 via-zinc-900 to-zinc-950",
     },
   },
   {
@@ -60,119 +60,118 @@ const projects: ProjectItem[] = [
     title: "Treasure Cove",
     description:
       "Gamified interactive treasure-hunt web application engineered with custom logic, puzzle state machines, and high-performance animations.",
-    techStack: ["JavaScript", "HTML5 Canvas", "Node.js", "CSS3 Animations"],
+    techStack: ["JAVASCRIPT", "HTML5 CANVAS", "NODE.JS", "CSS3"],
     githubUrl: "https://github.com/emilvsaji/Treasure-Cove",
-    icon: <Compass className="w-5 h-5" />,
-    accentColor: "from-amber-500 to-orange-500",
-    highlight: "Interactive Gamification",
-    previewGraphic: {
-      title: "Treasure Cove Engine",
-      tag: "JS • Canvas",
-      subtext: "Gamified exploration & score engine",
+    category: "INTERACTIVE GAMIFICATION",
+    accentColor: "bg-amber-500",
+    icon: <Compass className="w-5 h-5 text-amber-400" />,
+    previewVisual: {
+      label: "CANVAS PUZZLE & GAME ENGINE",
+      sublabel: "State machine logic & interactive clue exploration",
+      theme: "from-amber-950/50 via-zinc-900 to-zinc-950",
     },
   },
   {
     id: "harvast",
     title: "Harvast Spices",
     description:
-      "Full-featured e-commerce platform featuring catalog exploration, multi-criteria spice search/filtering, cart management, and checkout.",
-    techStack: ["PHP", "MySQL", "JavaScript", "Tailwind CSS"],
+      "Full-featured e-commerce platform with catalog exploration, multi-criteria spice search/filtering, cart management, and checkout.",
+    techStack: ["PHP", "MYSQL", "JAVASCRIPT", "TAILWIND CSS"],
     githubUrl: "https://github.com/emilvsaji/harvast",
-    icon: <ShoppingBag className="w-5 h-5" />,
-    accentColor: "from-emerald-600 to-teal-500",
-    highlight: "E-Commerce System",
-    previewGraphic: {
-      title: "Harvast Spices Storefront",
-      tag: "E-Commerce",
-      subtext: "Catalog, filters, cart & order flow",
+    category: "E-COMMERCE SYSTEM",
+    accentColor: "bg-emerald-500",
+    icon: <ShoppingBag className="w-5 h-5 text-emerald-400" />,
+    previewVisual: {
+      label: "SPICE STOREFRONT & ORDER SYSTEM",
+      sublabel: "Dynamic multi-filter search, cart & checkout flow",
+      theme: "from-emerald-950/50 via-zinc-900 to-zinc-950",
     },
   },
 ];
 
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="py-16 bg-slate-50/50 border-t border-slate-100">
+    <section id="projects" className="py-14 border-t border-white/[0.08]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="flex items-center gap-3 mb-8">
-          <div className="p-2 rounded-xl bg-blue-100/70 text-blue-600">
-            <FolderGit2 className="w-5 h-5" />
-          </div>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-              Featured Projects
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#f5f5f5] font-mono">
+              Projects
             </h2>
-            <p className="text-sm text-slate-500">
+            <p className="text-xs sm:text-sm text-[#71717a] font-mono mt-1">
               Selected full-stack applications, real-time tools, and software systems
             </p>
           </div>
+
+          <a
+            href="https://github.com/emilvsaji?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.12] text-xs font-mono text-[#f5f5f5] transition-colors self-start sm:self-auto"
+          >
+            <span>Explore all projects</span>
+            <ArrowRight className="w-3.5 h-3.5 text-[#a1a1aa]" />
+          </a>
         </div>
 
-        {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* 2-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 font-mono">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group border border-slate-200/90"
+              className="flat-card rounded-xl overflow-hidden flex flex-col justify-between group border border-white/[0.08] hover:border-white/20"
             >
               <div>
-                {/* Visual Header / Mockup Frame */}
-                <div className="relative h-44 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 p-4 flex flex-col justify-between overflow-hidden border-b border-slate-100">
-                  <div className="absolute inset-0 bg-dot-subtle opacity-15"></div>
-
-                  {/* Browser Bar Mockup */}
+                {/* Large Visual Thumbnail (No browser chrome mockup) */}
+                <div
+                  className={`relative h-44 bg-gradient-to-br ${project.previewVisual.theme} p-5 flex flex-col justify-between border-b border-white/[0.08] overflow-hidden`}
+                >
+                  <div className="absolute inset-0 bg-dot-subtle opacity-30"></div>
+                  
+                  {/* Top Bar with Category */}
                   <div className="relative z-10 flex items-center justify-between">
-                    <div className="flex items-center gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
-                    </div>
-                    <span className="text-[11px] font-mono text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700/60">
-                      {project.previewGraphic.tag}
+                    <span className="text-[10px] tracking-wider text-zinc-400 font-bold uppercase bg-zinc-900/80 px-2 py-0.5 rounded border border-white/[0.08]">
+                      {project.category}
                     </span>
-                  </div>
-
-                  {/* Graphic Center Content */}
-                  <div className="relative z-10 my-auto text-center py-2">
-                    <div className="inline-flex p-2 rounded-xl bg-white/10 text-white backdrop-blur-xs mb-1.5 ring-1 ring-white/20 group-hover:scale-110 transition-transform">
+                    <div className="p-1.5 rounded-md bg-zinc-900/90 border border-white/10 text-white">
                       {project.icon}
                     </div>
-                    <p className="text-white font-semibold text-sm tracking-wide">
-                      {project.previewGraphic.title}
+                  </div>
+
+                  {/* Visual Center */}
+                  <div className="relative z-10 my-auto py-1">
+                    <p className="text-[#f5f5f5] font-bold text-xs sm:text-sm tracking-wide">
+                      {project.previewVisual.label}
                     </p>
-                    <p className="text-slate-400 text-xs mt-0.5">
-                      {project.previewGraphic.subtext}
+                    <p className="text-[#71717a] text-[11px] mt-0.5">
+                      {project.previewVisual.sublabel}
                     </p>
                   </div>
 
-                  {/* Bottom Ribbon */}
-                  <div className="relative z-10 flex justify-between items-center text-[11px] text-slate-400 font-mono">
-                    <span className="flex items-center gap-1 text-blue-400">
-                      <Sparkles className="w-3 h-3" />
-                      {project.highlight}
-                    </span>
-                    <span>Ready for screenshots</span>
+                  {/* Visual Bottom Stripe Indicator */}
+                  <div className="relative z-10 flex items-center gap-1.5 text-[10px] text-[#71717a]">
+                    <span className={`w-1.5 h-1.5 rounded-full ${project.accentColor}`}></span>
+                    <span>Production Ready</span>
                   </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-5 sm:p-6 space-y-4">
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                      {project.title}
-                    </h3>
-                  </div>
+                <div className="p-5 space-y-3">
+                  <h3 className="text-base font-bold text-[#f5f5f5] group-hover:text-white transition-colors">
+                    {project.title}
+                  </h3>
 
-                  <p className="text-sm text-slate-600 leading-relaxed">
+                  <p className="text-xs text-[#a1a1aa] leading-relaxed">
                     {project.description}
                   </p>
 
-                  {/* Tech Stack Pills */}
+                  {/* Tech Stack Pills (All-Caps, Small Dark Pills) */}
                   <div className="flex flex-wrap gap-1.5 pt-1">
                     {project.techStack.map((tech, tIdx) => (
                       <span
                         key={tIdx}
-                        className="text-xs font-mono font-medium text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200/60"
+                        className="text-[10px] font-medium text-zinc-400 bg-zinc-900 border border-white/[0.06] px-2 py-0.5 rounded"
                       >
                         {tech}
                       </span>
@@ -182,31 +181,29 @@ export default function FeaturedProjects() {
               </div>
 
               {/* Card Footer Links */}
-              <div className="px-5 sm:px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900 transition-colors"
-                  >
-                    <GitHubIcon className="w-4 h-4" />
-                    <span>Source Code</span>
-                  </a>
-                </div>
+              <div className="px-5 py-3.5 bg-zinc-950/60 border-t border-white/[0.06] flex items-center justify-between text-xs">
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[#a1a1aa] hover:text-[#f5f5f5] transition-colors"
+                >
+                  <GitHubIcon className="w-3.5 h-3.5" />
+                  <span>Source</span>
+                </a>
 
                 {project.liveUrl ? (
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-xs transition-colors"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-zinc-800 hover:bg-zinc-700 text-[#f5f5f5] border border-white/10 text-xs transition-colors"
                   >
-                    <span>Live Demo</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>Website</span>
+                    <ExternalLink className="w-3 h-3 text-[#a1a1aa]" />
                   </a>
                 ) : (
-                  <span className="text-xs text-slate-400 font-mono">
+                  <span className="text-[11px] text-[#71717a]">
                     Open Source
                   </span>
                 )}
@@ -218,3 +215,4 @@ export default function FeaturedProjects() {
     </section>
   );
 }
+

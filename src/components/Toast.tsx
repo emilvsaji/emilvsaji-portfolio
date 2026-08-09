@@ -32,7 +32,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
       {children}
       {toast.visible && (
         <div className="fixed bottom-6 right-6 z-50 transition-all duration-300 transform translate-y-0 opacity-100 animate-in fade-in slide-in-from-bottom-5">
-          <div className="flex items-center gap-2.5 px-4 py-3 bg-slate-900 text-white text-sm font-medium rounded-xl shadow-2xl border border-slate-800 backdrop-blur-md">
+          <div className="flex items-center gap-2.5 px-4 py-3 bg-[#121212] text-[#f5f5f5] text-xs font-mono rounded-xl shadow-2xl border border-white/10">
             {toast.type === "success" && (
               <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
             )}
@@ -40,7 +40,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
             )}
             {toast.type === "info" && (
-              <Info className="w-4 h-4 text-blue-400 shrink-0" />
+              <Info className="w-4 h-4 text-sky-400 shrink-0" />
             )}
             <span>{toast.message}</span>
           </div>

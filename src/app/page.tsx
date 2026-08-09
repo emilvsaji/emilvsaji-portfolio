@@ -14,7 +14,7 @@ import { ToastProvider } from "@/components/Toast";
 export default function Home() {
   return (
     <ToastProvider>
-      <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-blue-100 selection:text-blue-900">
+      <div className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] flex flex-col font-mono selection:bg-zinc-800 selection:text-white">
         {/* Navigation */}
         <Navbar />
 

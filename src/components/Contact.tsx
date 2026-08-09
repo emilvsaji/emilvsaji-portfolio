@@ -6,11 +6,10 @@ import {
   Phone,
   Copy,
   Check,
-  GraduationCap,
-  Sparkles,
   MapPin,
+  Sparkles,
 } from "lucide-react";
-import { GitHubIcon, LinkedInIcon } from "./Icons";
+import { GitHubIcon, LinkedInIcon, XIcon } from "./Icons";
 import { useToast } from "./Toast";
 
 export default function Contact() {
@@ -33,46 +32,41 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 bg-slate-50/50 border-t border-slate-100">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <section id="contact" className="py-14 border-t border-white/[0.08]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 font-mono">
         {/* Section Header */}
-        <div className="flex items-center gap-3 mb-8">
-          <div className="p-2 rounded-xl bg-blue-100/70 text-blue-600">
-            <Mail className="w-5 h-5" />
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-              Get In Touch & Education
-            </h2>
-            <p className="text-sm text-slate-500">
-              Have a project, role, or collaboration in mind? Reach out directly.
-            </p>
-          </div>
+        <div className="mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#f5f5f5]">
+            Get In Touch
+          </h2>
+          <p className="text-xs sm:text-sm text-[#71717a] mt-1">
+            Have a project, role, or collaboration in mind? Reach out directly.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Direct Contact Card */}
-          <div className="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-200/90">
+          <div className="flat-card rounded-xl p-5 sm:p-6 flex flex-col justify-between border border-white/[0.08]">
             <div>
-              <h3 className="text-lg font-bold text-slate-900 mb-1">
-                Direct Contact Channels
+              <h3 className="text-sm sm:text-base font-bold text-[#f5f5f5] mb-1">
+                Direct Channels
               </h3>
-              <p className="text-xs text-slate-500 mb-5">
+              <p className="text-xs text-[#71717a] mb-5">
                 Fastest response via email or LinkedIn messages
               </p>
 
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 {/* Email Item */}
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between gap-3 shadow-2xs">
+                <div className="p-3 rounded-lg bg-zinc-950/60 border border-white/[0.06] flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="p-2 rounded-lg bg-blue-50 text-blue-600 shrink-0">
+                    <div className="w-8 h-8 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
                       <Mail className="w-4 h-4" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-[11px] font-medium text-slate-400">Email Address</p>
+                      <p className="text-[10px] text-[#71717a]">Email Address</p>
                       <a
                         href="mailto:emilsaji48@gmail.com"
-                        className="text-xs sm:text-sm font-semibold text-slate-900 hover:text-blue-600 truncate block transition-colors"
+                        className="text-xs font-semibold text-[#f5f5f5] hover:text-white truncate block transition-colors"
                       >
                         emilsaji48@gmail.com
                       </a>
@@ -80,28 +74,28 @@ export default function Contact() {
                   </div>
                   <button
                     onClick={copyEmail}
-                    className="p-2 rounded-lg text-slate-500 hover:text-blue-600 hover:bg-slate-50 transition-colors shrink-0"
+                    className="p-1.5 rounded-md text-[#71717a] hover:text-[#f5f5f5] hover:bg-zinc-800 transition-colors shrink-0 cursor-pointer"
                     title="Copy Email"
                   >
                     {copiedEmail ? (
-                      <Check className="w-4 h-4 text-emerald-600" />
+                      <Check className="w-3.5 h-3.5 text-emerald-400" />
                     ) : (
-                      <Copy className="w-4 h-4" />
+                      <Copy className="w-3.5 h-3.5" />
                     )}
                   </button>
                 </div>
 
                 {/* Phone Item */}
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between gap-3 shadow-2xs">
+                <div className="p-3 rounded-lg bg-zinc-950/60 border border-white/[0.06] flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="p-2 rounded-lg bg-emerald-50 text-emerald-600 shrink-0">
+                    <div className="w-8 h-8 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
                       <Phone className="w-4 h-4" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-[11px] font-medium text-slate-400">Phone / WhatsApp</p>
+                      <p className="text-[10px] text-[#71717a]">Phone / WhatsApp</p>
                       <a
                         href="tel:8078390442"
-                        className="text-xs sm:text-sm font-semibold text-slate-900 hover:text-emerald-600 font-mono transition-colors block"
+                        className="text-xs font-semibold text-[#f5f5f5] hover:text-emerald-400 transition-colors block"
                       >
                         +91 8078390442
                       </a>
@@ -109,13 +103,13 @@ export default function Contact() {
                   </div>
                   <button
                     onClick={copyPhone}
-                    className="p-2 rounded-lg text-slate-500 hover:text-emerald-600 hover:bg-slate-50 transition-colors shrink-0"
+                    className="p-1.5 rounded-md text-[#71717a] hover:text-[#f5f5f5] hover:bg-zinc-800 transition-colors shrink-0 cursor-pointer"
                     title="Copy Phone"
                   >
                     {copiedPhone ? (
-                      <Check className="w-4 h-4 text-emerald-600" />
+                      <Check className="w-3.5 h-3.5 text-emerald-400" />
                     ) : (
-                      <Copy className="w-4 h-4" />
+                      <Copy className="w-3.5 h-3.5" />
                     )}
                   </button>
                 </div>
@@ -123,14 +117,14 @@ export default function Contact() {
             </div>
 
             {/* Social Link Buttons */}
-            <div className="pt-5 mt-4 border-t border-slate-100 flex items-center gap-3">
+            <div className="pt-4 mt-4 border-t border-white/[0.08] flex items-center gap-2">
               <a
                 href="https://linkedin.com/in/emilvsaji"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold text-xs transition-colors border border-blue-200/80"
+                className="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-[#f5f5f5] text-xs border border-white/[0.08] transition-colors"
               >
-                <LinkedInIcon className="w-4 h-4" />
+                <LinkedInIcon className="w-3.5 h-3.5 text-[#a1a1aa]" />
                 <span>LinkedIn</span>
               </a>
 
@@ -138,74 +132,64 @@ export default function Contact() {
                 href="https://github.com/emilvsaji"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs transition-colors"
+                className="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-[#f5f5f5] text-xs border border-white/[0.08] transition-colors"
               >
-                <GitHubIcon className="w-4 h-4" />
+                <GitHubIcon className="w-3.5 h-3.5 text-[#a1a1aa]" />
                 <span>GitHub</span>
+              </a>
+
+              <a
+                href="https://twitter.com/emilvsaji"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-[#a1a1aa] hover:text-[#f5f5f5] border border-white/[0.08] transition-colors"
+                title="X / Twitter"
+              >
+                <XIcon className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
 
-          {/* Education & Location Card */}
-          <div className="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-200/90">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <GraduationCap className="w-4 h-4 text-blue-600" />
-                <h3 className="text-lg font-bold text-slate-900">
-                  Academic Background
+          {/* Location & Availability Card */}
+          <div className="flat-card rounded-xl p-5 sm:p-6 flex flex-col justify-between border border-white/[0.08]">
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-sm sm:text-base font-bold text-[#f5f5f5] mb-1">
+                  Location & Work Modes
                 </h3>
+                <p className="text-xs text-[#71717a]">
+                  Current base and work preference
+                </p>
               </div>
-              <p className="text-xs text-slate-500 mb-5">
-                Computer science education & foundations
-              </p>
 
-              <div className="space-y-4">
-                {/* BCA */}
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <h4 className="text-xs sm:text-sm font-bold text-slate-900">
-                        Bachelor of Computer Applications (BCA)
-                      </h4>
-                      <p className="text-xs text-blue-600 font-medium mt-0.5">
-                        MG University, Kottayam
-                      </p>
-                    </div>
-                    <span className="text-[11px] font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
-                      2026
-                    </span>
+              <div className="space-y-2.5">
+                <div className="p-3 rounded-lg bg-zinc-950/60 border border-white/[0.06]">
+                  <div className="flex items-center gap-2 text-xs text-[#f5f5f5] font-semibold">
+                    <MapPin className="w-3.5 h-3.5 text-sky-400" />
+                    <span>Kerala, India (IST / UTC+5:30)</span>
                   </div>
-                  <p className="text-xs text-slate-500 mt-2">
-                    Focus on Software Engineering, Data Structures, Web Systems & Database Management.
+                  <p className="text-[11px] text-[#71717a] mt-1">
+                    Available for Remote worldwide, Hybrid & Relocation opportunities.
                   </p>
                 </div>
 
-                {/* Higher Secondary */}
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <h4 className="text-xs sm:text-sm font-bold text-slate-900">
-                        Higher Secondary (Computer Science)
-                      </h4>
-                      <p className="text-xs text-blue-600 font-medium mt-0.5">
-                        Holy Cross HSS, Cherpunkal
-                      </p>
-                    </div>
-                    <span className="text-[11px] font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
-                      2023
-                    </span>
+                <div className="p-3 rounded-lg bg-zinc-950/60 border border-white/[0.06]">
+                  <div className="flex items-center gap-2 text-xs text-[#f5f5f5] font-semibold">
+                    <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>Open to Full-time & Contracts</span>
                   </div>
+                  <p className="text-[11px] text-[#71717a] mt-1">
+                    Ready to build scalable web applications with modern tech stacks.
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-              <span className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                Kerala, India
-              </span>
-              <span className="font-mono text-blue-600 font-medium">
-                Open to Remote & Relocation
+            <div className="pt-4 mt-4 border-t border-white/[0.08] flex items-center justify-between text-xs">
+              <span className="text-[#71717a]">Status</span>
+              <span className="text-emerald-400 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span>Active & Available</span>
               </span>
             </div>
           </div>
@@ -214,3 +198,4 @@ export default function Contact() {
     </section>
   );
 }
+
