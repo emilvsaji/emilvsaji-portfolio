@@ -122,37 +122,6 @@ export default function WorkTimeline() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Main Card Container */}
         <div className="relative rounded-2xl border border-white/[0.08] bg-[#0c0c0e] shadow-2xl">
-          {/* Pixel Character Sitting on the Top Left Edge */}
-          <div className="absolute -top-8 left-8 sm:left-12 z-20 pointer-events-none select-none">
-            <svg
-              width="36"
-              height="36"
-              viewBox="0 0 16 16"
-              className="drop-shadow-md"
-              style={{ imageRendering: "pixelated" }}
-            >
-              {/* Hair */}
-              <rect x="5" y="1" width="6" height="2" fill="#4b5563" />
-              <rect x="4" y="2" width="8" height="3" fill="#374151" />
-              <rect x="3" y="3" width="2" height="4" fill="#1f2937" />
-              <rect x="11" y="3" width="2" height="4" fill="#1f2937" />
-              {/* Face */}
-              <rect x="5" y="4" width="6" height="4" fill="#fcd34d" />
-              {/* Eyes */}
-              <rect x="6" y="5" width="1" height="1" fill="#111827" />
-              <rect x="9" y="5" width="1" height="1" fill="#111827" />
-              {/* Body */}
-              <rect x="4" y="8" width="8" height="4" fill="#1e293b" />
-              <rect x="7" y="8" width="2" height="3" fill="#f8fafc" />
-              <rect x="6" y="8" width="1" height="4" fill="#334155" />
-              <rect x="9" y="8" width="1" height="4" fill="#334155" />
-              {/* Sitting legs */}
-              <rect x="4" y="12" width="8" height="2" fill="#0f172a" />
-              <rect x="3" y="13" width="3" height="2" fill="#1e293b" />
-              <rect x="10" y="13" width="3" height="2" fill="#1e293b" />
-            </svg>
-          </div>
-
           {/* Top Tabs Switch */}
           <div className="p-2 border-b border-white/[0.06]">
             <div className="grid grid-cols-2 gap-1 bg-[#141416] p-1 rounded-xl border border-white/[0.04]">

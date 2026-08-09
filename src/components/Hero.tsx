@@ -33,13 +33,13 @@ export default function Hero() {
                 Hi, I&apos;m Emil V Saji
               </h1>
               <p className="mt-2 text-base sm:text-lg font-medium text-[#f5f5f5] font-mono">
-                21yo Full-Stack Web Developer from Kerala, India
+                20 yo Full-Stack Web Developer from Kerala, India
               </p>
             </div>
 
             {/* Bio */}
             <p className="text-[#a1a1aa] text-xs sm:text-sm leading-relaxed max-w-xl font-mono">
-              Specializing in React, Next.js, Node.js, and clean database architectures. Building robust web products with high performance and clean aesthetics.
+              Crafting modern web experiences with speed, simplicity, and precision.
             </p>
 
             {/* Icon / Pill Buttons Row */}
