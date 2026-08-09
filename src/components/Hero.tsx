@@ -30,10 +30,10 @@ export default function Hero() {
             {/* Title & Subheading */}
             <div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#f5f5f5] font-mono">
-                Hi, I&apos;m Emil V Saji
+                Hi,I&apos;m Emil V Saji
               </h1>
               <p className="mt-2 text-base sm:text-lg font-medium text-[#f5f5f5] font-mono">
-                20 yo Full-Stack Web Developer from Kerala, India
+                20yo Full-Stack Web Developer from Kerala, India
               </p>
             </div>
 
