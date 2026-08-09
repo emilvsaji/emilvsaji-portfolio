@@ -96,7 +96,7 @@ export default function WorkTimeline() {
   const items = activeTab === "work" ? workItems : educationItems;
 
   return (
-    <section id="experience" className="py-14 border-t border-white/[0.08]">
+    <section id="experience" className="py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Section Header with Tabs */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">

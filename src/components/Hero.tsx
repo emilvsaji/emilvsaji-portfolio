@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import {
   FileText,
   Mail,
-  MapPin,
   Sparkles,
   Check,
 } from "lucide-react";
@@ -23,25 +23,11 @@ export default function Hero() {
   };
 
   return (
-    <section className="pt-24 pb-14 md:pt-32 md:pb-18 relative">
+    <section className="pt-16 pb-12 sm:pt-20 sm:pb-16 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-8 md:gap-10">
           {/* Text Content */}
           <div className="flex-1 space-y-4">
-            {/* Status Chip */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-zinc-900/80 border border-white/[0.08] text-xs text-[#a1a1aa] font-mono">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span>Available for full-time & freelance</span>
-              <span className="text-zinc-600">•</span>
-              <span className="flex items-center gap-1 text-[#71717a]">
-                <MapPin className="w-3 h-3 text-[#71717a]" />
-                Kerala, India
-              </span>
-            </div>
-
             {/* Title & Subheading */}
             <div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#f5f5f5] font-mono">
@@ -125,15 +111,14 @@ export default function Hero() {
           {/* Profile Photo / Avatar Frame */}
           <div className="shrink-0 relative">
             <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-xl border border-white/[0.12] bg-zinc-900 p-1 flex items-center justify-center relative overflow-hidden">
-              <div className="w-full h-full rounded-lg bg-zinc-950 border border-white/[0.06] flex flex-col items-center justify-center text-white relative">
-                <div className="absolute inset-0 bg-dot-subtle opacity-40"></div>
-                <div className="w-14 h-14 rounded-md bg-zinc-800 border border-white/10 flex items-center justify-center text-xl font-bold text-[#f5f5f5] font-mono">
-                  ES
-                </div>
-                <span className="mt-2 text-[10px] font-mono tracking-wider text-[#71717a] uppercase">
-                  Full-Stack
-                </span>
-              </div>
+              <Image
+                src="/profile.png"
+                alt="Emil V Saji"
+                width={144}
+                height={144}
+                className="w-full h-full object-cover rounded-lg"
+                priority
+              />
             </div>
 
             {/* Quick Badge */}

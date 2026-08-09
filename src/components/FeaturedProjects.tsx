@@ -91,7 +91,7 @@ const projects: ProjectItem[] = [
 
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="py-14 border-t border-white/[0.08]">
+    <section id="projects" className="py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">

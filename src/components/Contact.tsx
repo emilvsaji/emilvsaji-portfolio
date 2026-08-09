@@ -32,7 +32,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-14 border-t border-white/[0.08]">
+    <section id="contact" className="py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 font-mono">
         {/* Section Header */}
         <div className="mb-8">

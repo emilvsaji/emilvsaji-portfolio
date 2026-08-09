@@ -86,57 +86,51 @@ A high-contrast dark mode contribution intensity ramp:
 
 ## 🏛️ Information Architecture & Sections
 
-The single-page layout follows a structured 9-section flow:
+The single-page layout follows a structured flow:
 
-1. **Header & Floating Navigation (`Navbar.tsx`)**:
-   - Brand logo badge with live availability pulse.
-   - Real-time Kerala local time clock (IST / Asia/Kolkata).
-   - Dynamic active section tracking via IntersectionObserver.
-   - Quick "Hire Me" mailto CTA and responsive mobile drawer.
-
-2. **Hero Section (`Hero.tsx`)**:
+1. **Hero Section (`Hero.tsx`)**:
    - Monospace greeting: `Hi, I'm Emil V Saji`.
    - Subheading line: `21yo Full-Stack Web Developer from Kerala, India`.
    - Left-aligned text block with concise bio.
    - Square rounded-corner profile avatar frame on the right with a subtle border.
    - Flat dark icon/pill button row (Resume, LinkedIn, GitHub, X/Twitter, Email).
 
-3. **Work & Education Experience (`WorkTimeline.tsx`)**:
+2. **Work & Education Experience (`WorkTimeline.tsx`)**:
    - Two-tab toggle switcher at top: **"Work"** / **"Education"**.
    - Small square company/brand logo icons on the left with distinct brand colors.
    - Role + Company Name in white, role subtitle in gray underneath.
    - Right-aligned date ranges and location + work mode badges.
-   - Clean horizontal divider lines between rows.
+   - Clean horizontal divider lines between items.
 
-4. **GitHub Contribution Graph (`GitHubContributions.tsx`)**:
+3. **GitHub Contribution Graph (`GitHubContributions.tsx`)**:
    - 52-week (364-day) dark-mode heatmap dynamically rendered.
    - Live metrics: Total Year Commits, Current Active Streak, and Active Days.
    - Custom floating tooltip showing date and commit count on cell hover.
    - Sync button to re-fetch live activity on demand.
 
-5. **Featured Projects (`FeaturedProjects.tsx`)**:
+4. **Featured Projects (`FeaturedProjects.tsx`)**:
    - Header with "Projects" title + "Explore all projects →" outlined pill button.
    - 2-column grid of featured projects with large raw preview thumbnails at top.
    - All-caps dark pill tags for tech stack (`REACT`, `TYPESCRIPT`, `NODE.JS`, etc.).
    - Source code and live website links at the bottom of each card.
    - Projects: **CatchMyBus**, **CareerBridge**, **Treasure Cove**, **Harvast Spices**.
 
-6. **Development Feed (`DevelopmentFeed.tsx`)**:
+5. **Development Feed (`DevelopmentFeed.tsx`)**:
    - Live commit stream connected to `api.github.com/users/emilvsaji/events`.
    - Displays repository pill, commit message, commit SHA hash, and relative timestamps.
    - Live stream status beacon and refresh trigger with toast feedback.
 
-7. **Highlights (`Achievements.tsx`)**:
+6. **Highlights (`Achievements.tsx`)**:
    - Vertical stack of flat dark cards.
    - Left thumbnail icon badge, top-right pill tags (`"1ST PLACE WINNER"`, `"GLOBAL PARTICIPANT"`) + year.
    - **ASTHRA 10.0 National Technical Fest** (Pixel Rush UI/UX Design Winner).
    - **NASA Space Apps Challenge** (Global Hackathon Participant).
 
-8. **Skills & Technologies (`Skills.tsx`)**:
+7. **Skills & Technologies (`Skills.tsx`)**:
    - Interactive category filter tabs (`All`, `Frontend`, `Backend`, `Database`, `Tools`).
    - Categorized flat cards with colored square category icons, proficiency levels, and notes.
 
-9. **Contact & Footer (`Contact.tsx` & `Footer.tsx`)**:
+8. **Contact & Footer (`Contact.tsx` & `Footer.tsx`)**:
    - One-click copy for email (`emilsaji48@gmail.com`) and phone (`+91 8078390442`).
    - Location and availability card (Kerala, India / Remote worldwide).
    - Flat dark footer with social links and back-to-top button.
@@ -153,18 +147,7 @@ fetch("https://api.github.com/users/emilvsaji/events/public")
 - Automatically parses commit messages, shortens SHA hashes (7 characters), and formats relative times.
 - Built-in graceful fallback cache ensures the UI never breaks even if GitHub API rate limits (60 req/hr unauthenticated) are reached.
 
-### 2. Live Kerala Local Time Indicator
-```ts
-// Formats current time into Indian Standard Time (IST)
-const timeStr = now.toLocaleTimeString("en-US", {
-  timeZone: "Asia/Kolkata",
-  hour: "numeric",
-  minute: "2-digit",
-  hour12: true,
-});
-```
-
-### 3. Clipboard Feedback System
+### 2. Clipboard Feedback System
 - Custom `ToastProvider` and `useToast()` hook rendering animated notifications for email/phone copying and activity refreshes.
 
 ---
@@ -201,7 +184,6 @@ emilvsaji-portfolio/
 │       ├── GitHubContributions.tsx    # Live contribution graph with dark heatmap
 │       ├── Hero.tsx                   # Hero section, pixel/mono greeting & flat buttons
 │       ├── Icons.tsx                  # Clean SVG GitHub, LinkedIn, and X icons
-│       ├── Navbar.tsx                 # Flat dark header with live Kerala clock
 │       ├── Skills.tsx                 # Interactive categorized skill cards
 │       ├── Toast.tsx                  # Dark toast notification provider & hook
 │       └── WorkTimeline.tsx           # Tabbed work & education timeline

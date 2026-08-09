@@ -41,7 +41,7 @@ const highlights: HighlightItem[] = [
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-14 border-t border-white/[0.08]">
+    <section id="achievements" className="py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="mb-8">

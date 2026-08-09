@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import WorkTimeline from "@/components/WorkTimeline";
 import GitHubContributions from "@/components/GitHubContributions";
@@ -15,9 +14,6 @@ export default function Home() {
   return (
     <ToastProvider>
       <div className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] flex flex-col font-mono selection:bg-zinc-800 selection:text-white">
-        {/* Navigation */}
-        <Navbar />
-
         {/* Main Content Sections (Strictly in requested order) */}
         <main className="flex-1">
           {/* 1. Hero Section */}

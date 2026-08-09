@@ -10,7 +10,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="py-10 bg-[#0a0a0a] border-t border-white/[0.08] font-mono">
+    <footer className="py-10 bg-[#0a0a0a] font-mono">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-center sm:text-left">
