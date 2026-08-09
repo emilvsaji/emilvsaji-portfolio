@@ -2,7 +2,6 @@ import React from "react";
 import Hero from "@/components/Hero";
 import WorkTimeline from "@/components/WorkTimeline";
 import FeaturedProjects from "@/components/FeaturedProjects";
-import DevelopmentFeed from "@/components/DevelopmentFeed";
 import Achievements from "@/components/Achievements";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
@@ -23,9 +22,6 @@ export default function Home() {
 
           {/* 4. Featured Projects */}
           <FeaturedProjects />
-
-          {/* 5. Development Feed (Live Commits) */}
-          <DevelopmentFeed />
 
           {/* 6. Highlights / Achievements */}
           <Achievements />

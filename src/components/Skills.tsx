@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Layout, Server, Database, Wrench } from "lucide-react";
 
 interface SkillCategory {
@@ -67,48 +67,22 @@ const skillCategories: SkillCategory[] = [
 ];
 
 export default function Skills() {
-  const [activeTab, setActiveTab] = useState<string>("all");
-
-  const filteredCategories =
-    activeTab === "all"
-      ? skillCategories
-      : skillCategories.filter((cat) => cat.id === activeTab);
-
   return (
     <section id="skills" className="py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#f5f5f5] font-mono">
-              Skills & Technologies
-            </h2>
-            <p className="text-xs sm:text-sm text-[#71717a] font-mono mt-1">
-              Frameworks, backend runtimes, databases, and engineering tooling
-            </p>
-          </div>
-
-          {/* Filter Pills */}
-          <div className="inline-flex flex-wrap gap-1 p-1 bg-zinc-900 rounded-lg border border-white/[0.08] font-mono text-xs self-start sm:self-auto">
-            {["all", "frontend", "backend", "database", "tools"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-2.5 py-1 rounded-md transition-colors capitalize ${
-                  activeTab === tab
-                    ? "bg-zinc-800 text-[#f5f5f5] font-semibold border border-white/10"
-                    : "text-[#a1a1aa] hover:text-[#f5f5f5]"
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
+        <div className="mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#f5f5f5] font-mono">
+            Skills & Technologies
+          </h2>
+          <p className="text-xs sm:text-sm text-[#71717a] font-mono mt-1">
+            Frameworks, backend runtimes, databases, and engineering tooling
+          </p>
         </div>
 
         {/* Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 font-mono">
-          {filteredCategories.map((category) => (
+          {skillCategories.map((category) => (
             <div
               key={category.id}
               className="flat-card rounded-xl p-5 border border-white/[0.08] hover:border-white/20"

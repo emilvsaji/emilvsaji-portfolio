@@ -20,7 +20,7 @@ export default function Footer() {
               <span className="text-[#71717a] font-normal">© 2026</span>
             </p>
             <p className="text-[11px] text-[#71717a] mt-0.5">
-              Full-Stack Developer · Kerala, India
+              Full-Stack Developer
             </p>
           </div>
 
