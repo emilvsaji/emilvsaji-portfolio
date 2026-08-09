@@ -5,7 +5,6 @@ import Image from "next/image";
 import {
   FileText,
   Mail,
-  Sparkles,
   Check,
 } from "lucide-react";
 import { GitHubIcon, LinkedInIcon, XIcon } from "./Icons";
@@ -47,7 +46,7 @@ export default function Hero() {
             <div className="pt-2 flex flex-wrap items-center gap-2.5 font-mono">
               {/* Resume Button */}
               <a
-                href="/resume.pdf"
+                href="/Emil%20V%20Saji.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-[#f5f5f5] text-xs font-medium border border-white/[0.12] transition-colors"
@@ -119,12 +118,6 @@ export default function Hero() {
                 className="w-full h-full object-cover rounded-lg"
                 priority
               />
-            </div>
-
-            {/* Quick Badge */}
-            <div className="absolute -bottom-2.5 -right-2 bg-zinc-900 border border-white/[0.12] rounded-md px-2 py-0.5 flex items-center gap-1 text-[10px] font-mono text-[#f5f5f5] shadow-lg">
-              <Sparkles className="w-2.5 h-2.5 text-amber-400" />
-              <span>1st Place UI/UX</span>
             </div>
           </div>
         </div>

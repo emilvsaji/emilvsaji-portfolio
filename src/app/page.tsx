@@ -1,7 +1,6 @@
 import React from "react";
 import Hero from "@/components/Hero";
 import WorkTimeline from "@/components/WorkTimeline";
-import GitHubContributions from "@/components/GitHubContributions";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import DevelopmentFeed from "@/components/DevelopmentFeed";
 import Achievements from "@/components/Achievements";
@@ -21,9 +20,6 @@ export default function Home() {
 
           {/* 2. Work Timeline */}
           <WorkTimeline />
-
-          {/* 3. GitHub Contribution Graph */}
-          <GitHubContributions />
 
           {/* 4. Featured Projects */}
           <FeaturedProjects />
