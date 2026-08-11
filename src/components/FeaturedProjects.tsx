@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { ArrowRight, ExternalLink, Bus, Briefcase, Compass, ShoppingBag } from "lucide-react";
 import { GitHubIcon } from "./Icons";
 
@@ -14,6 +15,7 @@ interface ProjectItem {
   category: string;
   accentColor: string;
   icon: React.ReactNode;
+  image?: string;
   previewVisual: {
     label: string;
     sublabel: string;
@@ -33,6 +35,7 @@ const projects: ProjectItem[] = [
     category: "TRANSIT WEB APP",
     accentColor: "bg-blue-500",
     icon: <Bus className="w-5 h-5 text-blue-400" />,
+    image: "/projects/catchmybus.png",
     previewVisual: {
       label: "LIVE BUS TRACKER & ROUTE NAVIGATOR",
       sublabel: "Real-time Firebase sync & schedule queries",
@@ -49,6 +52,7 @@ const projects: ProjectItem[] = [
     category: "FULL-STACK PORTAL",
     accentColor: "bg-indigo-500",
     icon: <Briefcase className="w-5 h-5 text-indigo-400" />,
+    image: "/projects/careerbridge.png",
     previewVisual: {
       label: "ROLE-BASED RECRUITMENT PORTAL",
       sublabel: "RBAC pipelines, applicant metrics & employer tools",
@@ -125,35 +129,47 @@ export default function FeaturedProjects() {
               <div>
                 {/* Large Visual Thumbnail (No browser chrome mockup) */}
                 <div
-                  className={`relative h-44 bg-gradient-to-br ${project.previewVisual.theme} p-5 flex flex-col justify-between border-b border-white/[0.08] overflow-hidden`}
+                  className={`relative h-48 sm:h-52 bg-gradient-to-br ${project.previewVisual.theme} flex flex-col justify-between border-b border-white/[0.08] overflow-hidden`}
                 >
-                  <div className="absolute inset-0 bg-dot-subtle opacity-30"></div>
-                  
-                  {/* Top Bar with Category */}
-                  <div className="relative z-10 flex items-center justify-between">
-                    <span className="text-[10px] tracking-wider text-zinc-400 font-bold uppercase bg-zinc-900/80 px-2 py-0.5 rounded border border-white/[0.08]">
-                      {project.category}
-                    </span>
-                    <div className="p-1.5 rounded-md bg-zinc-900/90 border border-white/10 text-white">
-                      {project.icon}
-                    </div>
-                  </div>
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} preview`}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                    />
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-dot-subtle opacity-30"></div>
+                      
+                      {/* Top Bar with Category */}
+                      <div className="relative z-10 flex items-center justify-between">
+                        <span className="text-[10px] tracking-wider text-zinc-400 font-bold uppercase bg-zinc-900/80 px-2 py-0.5 rounded border border-white/[0.08]">
+                          {project.category}
+                        </span>
+                        <div className="p-1.5 rounded-md bg-zinc-900/90 border border-white/10 text-white">
+                          {project.icon}
+                        </div>
+                      </div>
 
-                  {/* Visual Center */}
-                  <div className="relative z-10 my-auto py-1">
-                    <p className="text-[#f5f5f5] font-bold text-xs sm:text-sm tracking-wide">
-                      {project.previewVisual.label}
-                    </p>
-                    <p className="text-[#71717a] text-[11px] mt-0.5">
-                      {project.previewVisual.sublabel}
-                    </p>
-                  </div>
+                      {/* Visual Center */}
+                      <div className="relative z-10 my-auto py-1">
+                        <p className="text-[#f5f5f5] font-bold text-xs sm:text-sm tracking-wide">
+                          {project.previewVisual.label}
+                        </p>
+                        <p className="text-[#71717a] text-[11px] mt-0.5">
+                          {project.previewVisual.sublabel}
+                        </p>
+                      </div>
 
-                  {/* Visual Bottom Stripe Indicator */}
-                  <div className="relative z-10 flex items-center gap-1.5 text-[10px] text-[#71717a]">
-                    <span className={`w-1.5 h-1.5 rounded-full ${project.accentColor}`}></span>
-                    <span>Production Ready</span>
-                  </div>
+                      {/* Visual Bottom Stripe Indicator */}
+                      <div className="relative z-10 flex items-center gap-1.5 text-[10px] text-[#71717a]">
+                        <span className={`w-1.5 h-1.5 rounded-full ${project.accentColor}`}></span>
+                        <span>Production Ready</span>
+                      </div>
+                    </>
+                  )}
                 </div>
 
                 {/* Content Section */}
