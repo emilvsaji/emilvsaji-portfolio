@@ -54,14 +54,14 @@ const skillCategories: SkillCategory[] = [
   },
   {
     id: "tools",
-    name: "Tools & Testing",
+    name: "Tools & Deployment",
     icon: <Wrench className="w-4 h-4 text-amber-400" />,
     iconBg: "bg-amber-500/10 border-amber-500/20",
     skills: [
       { name: "Git", level: "Advanced", note: "Version Control & Branching" },
       { name: "GitHub", level: "Advanced", note: "Actions & CI/CD Pipelines" },
-      { name: "Selenium", level: "Proficient", note: "Automated QA Testing" },
-      { name: "Vercel / Hosting", level: "Advanced", note: "Production Deployments" },
+      { name: "Railway", level: "Proficient", note: "Backend Hosting & Services" },
+      { name: "Vercel", level: "Advanced", note: "Production Deployments" },
     ],
   },
 ];

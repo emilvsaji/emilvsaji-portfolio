@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
 interface TimelineItem {
@@ -10,9 +11,9 @@ interface TimelineItem {
   period: string;
   location: string;
   mode: string;
+  logo: string;
   bullets?: string[];
   skills?: string[];
-  renderLogo: () => React.ReactNode;
 }
 
 const workItems: TimelineItem[] = [
@@ -23,6 +24,7 @@ const workItems: TimelineItem[] = [
     period: "Feb 2026 – Mar 2026",
     location: "Remote",
     mode: "Internship",
+    logo: "/logos/innobyte.png",
     skills: ["React.js", "JavaScript", "Tailwind CSS", "REST APIs", "State Management"],
     bullets: [
       "Developed dynamic user interfaces using React.js, JavaScript, and Tailwind CSS.",
@@ -31,15 +33,6 @@ const workItems: TimelineItem[] = [
       "Integrated frontend components with APIs and backend services.",
       "Improved application performance by optimizing component rendering and state management.",
     ],
-    renderLogo: () => (
-      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-2 text-white">
-        <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="16 18 22 12 16 6" />
-          <polyline points="8 6 2 12 8 18" />
-          <line x1="14" y1="4" x2="10" y2="20" />
-        </svg>
-      </div>
-    ),
   },
   {
     id: "apexplanet",
@@ -48,6 +41,7 @@ const workItems: TimelineItem[] = [
     period: "Dec 2025 – Feb 2026",
     location: "Remote",
     mode: "Internship",
+    logo: "/logos/apexplanet.png",
     skills: ["HTML5", "CSS3", "JavaScript", "UI Components", "API Integration"],
     bullets: [
       "Developed responsive webpages using HTML, CSS, and JavaScript ensuring cross-browser compatibility and mobile responsiveness.",
@@ -56,17 +50,6 @@ const workItems: TimelineItem[] = [
       "Collaborated with designers and backend developers to integrate APIs and dynamic content.",
       "Participated in debugging and testing processes to ensure stable and reliable web applications.",
     ],
-    renderLogo: () => (
-      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-2 text-white">
-        <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="9" />
-          <path d="M3.6 9h16.8" />
-          <path d="M3.6 15h16.8" />
-          <path d="M12 3a14 14 0 0 0 0 18" />
-          <path d="M12 3a14 14 0 0 1 0 18" />
-        </svg>
-      </div>
-    ),
   },
 ];
 
@@ -78,15 +61,11 @@ const educationItems: TimelineItem[] = [
     period: "2023 - 2026",
     location: "Kottayam, Kerala",
     mode: "Regular",
+    logo: "/logos/mgu.png",
     bullets: [
       "Core curriculum in Software Engineering, Data Structures, Web Systems, and Database Management Systems.",
       "Focused on Full-Stack Web Development, Object-Oriented Programming, and Computer Architecture.",
     ],
-    renderLogo: () => (
-      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center shrink-0 shadow-sm overflow-hidden text-white font-bold text-base font-mono">
-        MG
-      </div>
-    ),
   },
   {
     id: "holycross",
@@ -95,15 +74,11 @@ const educationItems: TimelineItem[] = [
     period: "2021 - 2023",
     location: "Kottayam, Kerala",
     mode: "On Site",
+    logo: "/logos/holycross.png",
     bullets: [
       "Academic foundation in Computer Science, C++ / Python programming fundamentals, Mathematics, and Physics.",
       "Completed Higher Secondary Board Examination with Distinction (92%).",
     ],
-    renderLogo: () => (
-      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-cyan-600 to-blue-700 flex items-center justify-center shrink-0 shadow-sm overflow-hidden text-white font-bold text-base font-mono">
-        HC
-      </div>
-    ),
   },
 ];
 
@@ -166,7 +141,15 @@ export default function WorkTimeline() {
                   >
                     {/* Left: Logo & Info */}
                     <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
-                      {item.renderLogo()}
+                      <div className="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center shrink-0 shadow-sm border border-white/10 overflow-hidden">
+                        <Image
+                          src={item.logo}
+                          alt={`${item.title} logo`}
+                          width={48}
+                          height={48}
+                          className="w-full h-full object-contain object-center"
+                        />
+                      </div>
 
                       <div className="min-w-0">
                         <h3 className="text-sm sm:text-base font-bold text-[#f5f5f5] tracking-tight font-mono truncate">
@@ -198,7 +181,7 @@ export default function WorkTimeline() {
 
                   {/* Expandable Details Drawer */}
                   {isExpanded && item.bullets && (
-                    <div className="px-4 sm:px-6 pb-5 pt-1 pl-16 sm:pl-20 border-t border-white/[0.04] bg-white/[0.01] font-mono">
+                    <div className="px-4 sm:px-6 pb-5 pt-1 pl-[4.25rem] sm:pl-[5rem] border-t border-white/[0.04] bg-white/[0.01] font-mono">
                       {/* Skills Tags */}
                       {item.skills && (
                         <div className="flex flex-wrap gap-1.5 mb-3">

@@ -39,6 +39,12 @@ export const metadata: Metadata = {
     description:
       "Full-stack web developer building scalable web apps and modern UIs.",
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-icon",
+  },
 };
 
 export default function RootLayout({

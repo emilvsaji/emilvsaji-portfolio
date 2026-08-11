@@ -105,12 +105,12 @@ export default function FeaturedProjects() {
           </div>
 
           <a
-            href="https://github.com/emilvsaji?tab=repositories"
+            href="https://github.com/emilvsaji"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.12] text-xs font-mono text-[#f5f5f5] transition-colors self-start sm:self-auto"
           >
-            <span>Explore all projects</span>
+            <span>Explore more projects</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#a1a1aa]" />
           </a>
         </div>
