@@ -105,11 +105,10 @@ export default function WorkTimeline() {
                   setActiveTab("work");
                   setExpandedId(null);
                 }}
-                className={`py-2 px-4 rounded-lg text-sm font-mono transition-all text-center cursor-pointer ${
-                  activeTab === "work"
+                className={`py-2 px-4 rounded-lg text-sm font-mono transition-all text-center cursor-pointer ${activeTab === "work"
                     ? "bg-[#27272a] text-[#f5f5f5] font-semibold shadow-sm border border-white/10"
                     : "text-[#71717a] hover:text-[#a1a1aa]"
-                }`}
+                  }`}
               >
                 Work
               </button>
@@ -118,11 +117,10 @@ export default function WorkTimeline() {
                   setActiveTab("education");
                   setExpandedId(null);
                 }}
-                className={`py-2 px-4 rounded-lg text-sm font-mono transition-all text-center cursor-pointer ${
-                  activeTab === "education"
+                className={`py-2 px-4 rounded-lg text-sm font-mono transition-all text-center cursor-pointer ${activeTab === "education"
                     ? "bg-[#27272a] text-[#f5f5f5] font-semibold shadow-sm border border-white/10"
                     : "text-[#71717a] hover:text-[#a1a1aa]"
-                }`}
+                  }`}
               >
                 Education
               </button>
@@ -172,9 +170,8 @@ export default function WorkTimeline() {
                         </p>
                       </div>
                       <ChevronDown
-                        className={`w-4 h-4 text-[#71717a] transition-transform duration-200 ${
-                          isExpanded ? "rotate-180 text-white" : ""
-                        }`}
+                        className={`w-4 h-4 text-[#71717a] transition-transform duration-200 ${isExpanded ? "rotate-180 text-white" : ""
+                          }`}
                       />
                     </div>
                   </div>

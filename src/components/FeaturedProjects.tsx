@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowRight, ExternalLink, Bus, Briefcase, Compass, ShoppingBag } from "lucide-react";
+import { ArrowRight, ExternalLink, Bus, Briefcase, Plane, Recycle } from "lucide-react";
 import { GitHubIcon } from "./Icons";
 
 interface ProjectItem {
@@ -25,21 +25,21 @@ interface ProjectItem {
 
 const projects: ProjectItem[] = [
   {
-    id: "catchmybus",
-    title: "CatchMyBus",
+    id: "wandrix",
+    title: "Wandrix",
     description:
-      "Mobile-responsive bus search and route discovery platform with real-time stops, transit schedules, and live commuter filtering.",
-    techStack: ["REACT", "TYPESCRIPT", "NODE.JS", "FIREBASE", "TAILWIND CSS"],
-    liveUrl: "https://catch-my-bus.vercel.app",
-    githubUrl: "https://github.com/emilvsaji/CatchMyBus",
-    category: "TRANSIT WEB APP",
-    accentColor: "bg-blue-500",
-    icon: <Bus className="w-5 h-5 text-blue-400" />,
-    image: "/projects/catchmybus.png",
+      "AI-powered travel planning platform featuring multi-destination comparison, smart itinerary generator, wishlist management, and JWT auth.",
+    techStack: ["REACT", "PYTHON", "FLASK", "MONGODB", "GEMINI AI", "TAILWIND CSS"],
+    liveUrl: "https://wandrix.vercel.app",
+    githubUrl: "https://github.com/emilvsaji/wandrix",
+    category: "AI TRAVEL PLATFORM",
+    accentColor: "bg-sky-500",
+    icon: <Plane className="w-5 h-5 text-sky-400" />,
+    image: "/projects/wandrix.png",
     previewVisual: {
-      label: "LIVE BUS TRACKER & ROUTE NAVIGATOR",
-      sublabel: "Real-time Firebase sync & schedule queries",
-      theme: "from-blue-950/50 via-zinc-900 to-zinc-950",
+      label: "AI DESTINATION & ITINERARY ENGINE",
+      sublabel: "Gemini-powered comparison & personalized trip plans",
+      theme: "from-sky-950/50 via-zinc-900 to-zinc-950",
     },
   },
   {
@@ -60,34 +60,38 @@ const projects: ProjectItem[] = [
     },
   },
   {
-    id: "treasurecove",
-    title: "Treasure Cove",
+    id: "catchmybus",
+    title: "CatchMyBus",
     description:
-      "Gamified interactive treasure-hunt web application engineered with custom logic, puzzle state machines, and high-performance animations.",
-    techStack: ["JAVASCRIPT", "HTML5 CANVAS", "NODE.JS", "CSS3"],
-    githubUrl: "https://github.com/emilvsaji/Treasure-Cove",
-    category: "INTERACTIVE GAMIFICATION",
-    accentColor: "bg-amber-500",
-    icon: <Compass className="w-5 h-5 text-amber-400" />,
+      "Mobile-responsive bus search and route discovery platform with real-time stops, transit schedules, and live commuter filtering.",
+    techStack: ["REACT", "TYPESCRIPT", "NODE.JS", "FIREBASE", "TAILWIND CSS"],
+    liveUrl: "https://catch-my-bus.vercel.app",
+    githubUrl: "https://github.com/emilvsaji/CatchMyBus",
+    category: "TRANSIT WEB APP",
+    accentColor: "bg-blue-500",
+    icon: <Bus className="w-5 h-5 text-blue-400" />,
+    image: "/projects/catchmybus.png",
     previewVisual: {
-      label: "CANVAS PUZZLE & GAME ENGINE",
-      sublabel: "State machine logic & interactive clue exploration",
-      theme: "from-amber-950/50 via-zinc-900 to-zinc-950",
+      label: "LIVE BUS TRACKER & ROUTE NAVIGATOR",
+      sublabel: "Real-time Firebase sync & schedule queries",
+      theme: "from-blue-950/50 via-zinc-900 to-zinc-950",
     },
   },
   {
-    id: "harvast",
-    title: "Harvast Spices",
+    id: "ecoloop",
+    title: "EcoLoop",
     description:
-      "Full-featured e-commerce platform with catalog exploration, multi-criteria spice search/filtering, cart management, and checkout.",
-    techStack: ["PHP", "MYSQL", "JAVASCRIPT", "TAILWIND CSS"],
-    githubUrl: "https://github.com/emilvsaji/harvast",
-    category: "E-COMMERCE SYSTEM",
+      "Full-stack e-waste pickup and recycling platform with role-based workflows for users, workers, and admins, featuring an AI Smart Price Estimator via Gemini.",
+    techStack: ["REACT", "TYPESCRIPT", "PYTHON", "FLASK", "MONGODB", "GEMINI AI"],
+    liveUrl: "https://ecoloop-sooty.vercel.app",
+    githubUrl: "https://github.com/emilvsaji/ecoloop",
+    category: "GREEN TECH PLATFORM",
     accentColor: "bg-emerald-500",
-    icon: <ShoppingBag className="w-5 h-5 text-emerald-400" />,
+    icon: <Recycle className="w-5 h-5 text-emerald-400" />,
+    image: "/projects/ecoloop.png",
     previewVisual: {
-      label: "SPICE STOREFRONT & ORDER SYSTEM",
-      sublabel: "Dynamic multi-filter search, cart & checkout flow",
+      label: "E-WASTE PICKUP & RECYCLING SYSTEM",
+      sublabel: "Role-based workflows & AI price estimation",
       theme: "from-emerald-950/50 via-zinc-900 to-zinc-950",
     },
   },
@@ -119,7 +123,7 @@ export default function FeaturedProjects() {
           </a>
         </div>
 
-        {/* 2-Column Grid */}
+        {/* 2-Column Grid (4 items) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 font-mono">
           {projects.map((project) => (
             <div
@@ -129,7 +133,7 @@ export default function FeaturedProjects() {
               <div>
                 {/* Large Visual Thumbnail (No browser chrome mockup) */}
                 <div
-                  className={`relative h-48 sm:h-52 bg-gradient-to-br ${project.previewVisual.theme} flex flex-col justify-between border-b border-white/[0.08] overflow-hidden`}
+                  className={`relative h-48 md:h-64 bg-gradient-to-br ${project.previewVisual.theme} flex flex-col justify-between border-b border-white/[0.08] overflow-hidden`}
                 >
                   {project.image ? (
                     <Image
@@ -142,9 +146,9 @@ export default function FeaturedProjects() {
                   ) : (
                     <>
                       <div className="absolute inset-0 bg-dot-subtle opacity-30"></div>
-                      
+
                       {/* Top Bar with Category */}
-                      <div className="relative z-10 flex items-center justify-between">
+                      <div className="relative z-10 flex items-center justify-between p-5">
                         <span className="text-[10px] tracking-wider text-zinc-400 font-bold uppercase bg-zinc-900/80 px-2 py-0.5 rounded border border-white/[0.08]">
                           {project.category}
                         </span>
@@ -154,7 +158,7 @@ export default function FeaturedProjects() {
                       </div>
 
                       {/* Visual Center */}
-                      <div className="relative z-10 my-auto py-1">
+                      <div className="relative z-10 my-auto py-1 px-5">
                         <p className="text-[#f5f5f5] font-bold text-xs sm:text-sm tracking-wide">
                           {project.previewVisual.label}
                         </p>
@@ -164,7 +168,7 @@ export default function FeaturedProjects() {
                       </div>
 
                       {/* Visual Bottom Stripe Indicator */}
-                      <div className="relative z-10 flex items-center gap-1.5 text-[10px] text-[#71717a]">
+                      <div className="relative z-10 flex items-center gap-1.5 text-[10px] text-[#71717a] px-5 pb-5">
                         <span className={`w-1.5 h-1.5 rounded-full ${project.accentColor}`}></span>
                         <span>Production Ready</span>
                       </div>
@@ -231,4 +235,3 @@ export default function FeaturedProjects() {
     </section>
   );
 }
-

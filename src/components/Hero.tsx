@@ -109,13 +109,13 @@ export default function Hero() {
 
           {/* Profile Photo / Avatar Frame */}
           <div className="shrink-0 relative">
-            <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-xl border border-white/[0.12] bg-zinc-900 p-1 flex items-center justify-center relative overflow-hidden">
+            <div className="w-32 h-36 sm:w-36 sm:h-40 md:w-44 md:h-48 rounded-2xl border border-white/[0.12] bg-zinc-900 p-1 flex items-center justify-center relative overflow-hidden rotate-3 shadow-xl">
               <Image
                 src="/profile.png"
                 alt="Emil V Saji"
-                width={144}
-                height={144}
-                className="w-full h-full object-cover rounded-lg"
+                width={176}
+                height={192}
+                className="w-full h-full object-cover rounded-[14px]"
                 priority
               />
             </div>
