@@ -106,8 +106,8 @@ export default function WorkTimeline() {
                   setExpandedId(null);
                 }}
                 className={`py-2 px-4 rounded-lg text-sm font-mono transition-all text-center cursor-pointer ${activeTab === "work"
-                    ? "bg-[#27272a] text-[#f5f5f5] font-semibold shadow-sm border border-white/10"
-                    : "text-[#71717a] hover:text-[#a1a1aa]"
+                  ? "bg-[#27272a] text-[#f5f5f5] font-semibold shadow-sm border border-white/10"
+                  : "text-[#71717a] hover:text-[#a1a1aa]"
                   }`}
               >
                 Work
@@ -118,8 +118,8 @@ export default function WorkTimeline() {
                   setExpandedId(null);
                 }}
                 className={`py-2 px-4 rounded-lg text-sm font-mono transition-all text-center cursor-pointer ${activeTab === "education"
-                    ? "bg-[#27272a] text-[#f5f5f5] font-semibold shadow-sm border border-white/10"
-                    : "text-[#71717a] hover:text-[#a1a1aa]"
+                  ? "bg-[#27272a] text-[#f5f5f5] font-semibold shadow-sm border border-white/10"
+                  : "text-[#71717a] hover:text-[#a1a1aa]"
                   }`}
               >
                 Education
