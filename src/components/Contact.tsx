@@ -56,7 +56,7 @@ export default function Contact() {
               {/* Email Item */}
               <div className="p-3 rounded-lg bg-zinc-950/60 border border-white/[0.06] flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-8 h-8 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-md bg-zinc-900 border border-white/[0.08] text-[#a1a1aa] flex items-center justify-center shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
@@ -85,7 +85,7 @@ export default function Contact() {
               {/* Phone Item */}
               <div className="p-3 rounded-lg bg-zinc-950/60 border border-white/[0.06] flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-8 h-8 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-md bg-zinc-900 border border-white/[0.08] text-[#a1a1aa] flex items-center justify-center shrink-0">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
