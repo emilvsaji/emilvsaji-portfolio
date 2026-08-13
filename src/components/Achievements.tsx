@@ -13,19 +13,10 @@ interface HighlightItem {
   description: string;
   image: string;
   fallbackTheme: string;
+  link: string;
 }
 
 const highlights: HighlightItem[] = [
-  {
-    id: "nasa-space-apps",
-    title: "NASA Space Apps Challenge",
-    credential: "GLOBAL PARTICIPANT",
-    year: "2025",
-    description:
-      "Built an open-source web app using NASA Earth observation datasets — one of 57,000+ participants across 160+ countries.",
-    image: "/highlights/nasa.jpg",
-    fallbackTheme: "from-indigo-950/60 via-zinc-900 to-zinc-900",
-  },
   {
     id: "asthra",
     title: "ASTHRA 10.0 — Pixel Rush",
@@ -35,6 +26,18 @@ const highlights: HighlightItem[] = [
       "Won 1st place in the national-level UI/UX design competition, judged on design systems, UX heuristics, and rapid visual prototyping.",
     image: "/highlights/asthra.jpg",
     fallbackTheme: "from-amber-950/60 via-zinc-900 to-zinc-900",
+    link: "https://www.linkedin.com/posts/emilvsaji_uiux-teamwork-userexperience-activity-7375925488424443904-2hKO",
+  },
+  {
+    id: "nasa-space-apps",
+    title: "NASA Space Apps Challenge",
+    credential: "GLOBAL PARTICIPANT",
+    year: "2025",
+    description:
+      "Built an open-source web app using NASA Earth observation datasets — one of 57,000+ participants across 160+ countries.",
+    image: "/highlights/nasa.jpg",
+    fallbackTheme: "from-indigo-950/60 via-zinc-900 to-zinc-900",
+    link: "https://www.linkedin.com/posts/emilvsaji_spaceapps-hackathon-agriconnect-activity-7381343882443337728-Ef2K",
   },
 ];
 
@@ -55,9 +58,12 @@ export default function Achievements() {
         {/* Vertical stack — single column */}
         <div className="space-y-4 font-mono">
           {highlights.map((item) => (
-            <div
+            <a
               key={item.id}
-              className="flat-card rounded-xl p-4 border border-white/[0.08] hover:border-white/20 flex flex-row items-center gap-4 sm:gap-5"
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flat-card rounded-xl p-4 border border-white/[0.08] hover:border-white/20 flex flex-row items-center gap-4 sm:gap-5 group transition-all duration-200 block"
             >
               {/* Square thumbnail — left side */}
               <div
@@ -67,7 +73,7 @@ export default function Achievements() {
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover object-center"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   sizes="112px"
                 />
               </div>
@@ -83,9 +89,9 @@ export default function Achievements() {
                 </div>
 
                 {/* Title with arrow */}
-                <h3 className="text-sm sm:text-base font-bold text-[#f5f5f5] flex items-center gap-1.5 flex-wrap">
-                  {item.title}
-                  <ArrowRight className="w-3.5 h-3.5 text-[#71717a] shrink-0" />
+                <h3 className="text-sm sm:text-base font-bold text-[#f5f5f5] group-hover:text-white flex items-center gap-1.5 flex-wrap transition-colors">
+                  <span>{item.title}</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#71717a] group-hover:text-white group-hover:translate-x-1 transition-all duration-200 shrink-0" />
                 </h3>
 
                 {/* Single-sentence description */}
@@ -93,7 +99,7 @@ export default function Achievements() {
                   {item.description}
                 </p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
