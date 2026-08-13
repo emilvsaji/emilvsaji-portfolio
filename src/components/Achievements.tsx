@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Trophy, Rocket } from "lucide-react";
+import Image from "next/image";
 
 interface HighlightItem {
   id: string;
@@ -10,7 +10,8 @@ interface HighlightItem {
   credential: string;
   year: string;
   description: string;
-  icon: React.ReactNode;
+  image: string;
+  fallbackTheme: string;
 }
 
 const highlights: HighlightItem[] = [
@@ -21,8 +22,9 @@ const highlights: HighlightItem[] = [
     credential: "1ST PLACE",
     year: "2025",
     description:
-      "Won the national-level UI/UX design competition at ASTHRA 10.0. Judged on design systems, UX heuristics, interactive wireframes, and rapid visual prototyping.",
-    icon: <Trophy className="w-5 h-5 text-amber-400" />,
+      "Won the national-level UI/UX design competition, judged on design systems, UX heuristics, and rapid visual prototyping.",
+    image: "/highlights/asthra.jpg",
+    fallbackTheme: "from-amber-950/40 via-zinc-900 to-zinc-950",
   },
   {
     id: "nasa-space-apps",
@@ -31,8 +33,9 @@ const highlights: HighlightItem[] = [
     credential: "GLOBAL PARTICIPANT",
     year: "2025",
     description:
-      "Built an open-source web app using NASA Earth observation datasets as part of a 48-hour team challenge. One of 57,000+ participants across 160+ countries.",
-    icon: <Rocket className="w-5 h-5 text-indigo-400" />,
+      "Built an open-source web app using NASA Earth observation datasets in a 48-hour challenge — one of 57,000+ participants across 160+ countries.",
+    image: "/highlights/nasa.jpg",
+    fallbackTheme: "from-indigo-950/40 via-zinc-900 to-zinc-950",
   },
 ];
 
@@ -50,44 +53,51 @@ export default function Achievements() {
           </p>
         </div>
 
-        {/* Vertical Stack of Cards */}
+        {/* Vertical Stack */}
         <div className="space-y-4 font-mono">
           {highlights.map((item) => (
             <div
               key={item.id}
-              className="flat-card rounded-xl p-5 sm:p-6 border border-white/[0.08] hover:border-white/20 flex flex-col sm:flex-row items-start gap-4 sm:gap-5"
+              className="flat-card rounded-xl overflow-hidden border border-white/[0.08] hover:border-white/20"
             >
-              {/* Left Icon */}
-              <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-white/[0.08] flex items-center justify-center shrink-0 mt-0.5">
-                {item.icon}
+              {/* Image Area — same proportions as FeaturedProjects */}
+              <div
+                className={`relative h-48 md:h-64 bg-gradient-to-br ${item.fallbackTheme} border-b border-white/[0.08] overflow-hidden`}
+              >
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 896px"
+                  onError={() => {}}
+                />
+                {/* Subtle dot pattern visible through semi-transparent images */}
+                <div className="absolute inset-0 bg-dot-subtle opacity-20 pointer-events-none" />
               </div>
 
               {/* Content */}
-              <div className="flex-1 min-w-0 space-y-1.5">
-                {/* Top Row: Title + credential inline */}
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-                  <div>
-                    <h3 className="text-sm sm:text-base font-bold text-[#f5f5f5]">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-sky-400/90 font-medium mt-0.5">
-                      {item.category}
-                    </p>
-                  </div>
-
-                  {/* Credential — same tag style as project tech-stack */}
-                  <div className="flex items-center gap-2 shrink-0 self-start sm:self-auto">
-                    <span className="text-[10px] font-medium text-zinc-400 bg-zinc-900 border border-white/[0.06] px-2 py-0.5 rounded">
-                      {item.credential}
-                    </span>
-                    <span className="text-[11px] text-[#71717a]">
-                      {item.year}
-                    </span>
-                  </div>
+              <div className="p-5">
+                {/* Credential tag + year — same style as tech-stack pills */}
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-[10px] font-medium text-zinc-400 bg-zinc-900 border border-white/[0.06] px-2 py-0.5 rounded">
+                    {item.credential}
+                  </span>
+                  <span className="text-[11px] text-[#71717a]">{item.year}</span>
                 </div>
 
-                {/* Description */}
-                <p className="text-xs text-[#a1a1aa] leading-relaxed pt-1">
+                {/* Title */}
+                <h3 className="text-sm sm:text-base font-bold text-[#f5f5f5] mb-1">
+                  {item.title}
+                </h3>
+
+                {/* Category */}
+                <p className="text-xs text-sky-400/90 font-medium mb-2">
+                  {item.category}
+                </p>
+
+                {/* One-sentence description */}
+                <p className="text-xs text-[#a1a1aa] leading-relaxed">
                   {item.description}
                 </p>
               </div>
