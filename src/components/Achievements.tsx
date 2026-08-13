@@ -2,12 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 interface HighlightItem {
   id: string;
   title: string;
-  category: string;
   credential: string;
+  credentialSub?: string;
   year: string;
   description: string;
   image: string;
@@ -16,26 +17,24 @@ interface HighlightItem {
 
 const highlights: HighlightItem[] = [
   {
-    id: "asthra",
-    title: "ASTHRA 10.0 National Technical Fest",
-    category: "Pixel Rush — UI/UX Design Competition",
-    credential: "1ST PLACE",
-    year: "2025",
-    description:
-      "Won the national-level UI/UX design competition, judged on design systems, UX heuristics, and rapid visual prototyping.",
-    image: "/highlights/asthra.jpg",
-    fallbackTheme: "from-amber-950/40 via-zinc-900 to-zinc-950",
-  },
-  {
     id: "nasa-space-apps",
     title: "NASA Space Apps Challenge",
-    category: "Global Hackathon",
     credential: "GLOBAL PARTICIPANT",
     year: "2025",
     description:
-      "Built an open-source web app using NASA Earth observation datasets in a 48-hour challenge — one of 57,000+ participants across 160+ countries.",
+      "Built an open-source web app using NASA Earth observation datasets — one of 57,000+ participants across 160+ countries.",
     image: "/highlights/nasa.jpg",
-    fallbackTheme: "from-indigo-950/40 via-zinc-900 to-zinc-950",
+    fallbackTheme: "from-indigo-950/60 via-zinc-900 to-zinc-900",
+  },
+  {
+    id: "asthra",
+    title: "ASTHRA 10.0 — Pixel Rush",
+    credential: "1ST PLACE WINNER",
+    year: "2025",
+    description:
+      "Won 1st place in the national-level UI/UX design competition, judged on design systems, UX heuristics, and rapid visual prototyping.",
+    image: "/highlights/asthra.jpg",
+    fallbackTheme: "from-amber-950/60 via-zinc-900 to-zinc-900",
   },
 ];
 
@@ -49,54 +48,47 @@ export default function Achievements() {
             Highlights
           </h2>
           <p className="text-xs sm:text-sm text-[#71717a] font-mono mt-1">
-            Recognitions, hackathons, and national design competitions
+            Some of my small wins.
           </p>
         </div>
 
-        {/* Vertical Stack */}
+        {/* Vertical stack — single column */}
         <div className="space-y-4 font-mono">
           {highlights.map((item) => (
             <div
               key={item.id}
-              className="flat-card rounded-xl overflow-hidden border border-white/[0.08] hover:border-white/20"
+              className="flat-card rounded-xl p-4 border border-white/[0.08] hover:border-white/20 flex flex-row items-center gap-4 sm:gap-5"
             >
-              {/* Image Area — same proportions as FeaturedProjects */}
+              {/* Square thumbnail — left side */}
               <div
-                className={`relative h-48 md:h-64 bg-gradient-to-br ${item.fallbackTheme} border-b border-white/[0.08] overflow-hidden`}
+                className={`relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl bg-gradient-to-br ${item.fallbackTheme} overflow-hidden shrink-0 border border-white/[0.08]`}
               >
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
                   className="object-cover object-center"
-                  sizes="(max-width: 768px) 100vw, 896px"
-                  onError={() => {}}
+                  sizes="112px"
                 />
-                {/* Subtle dot pattern visible through semi-transparent images */}
-                <div className="absolute inset-0 bg-dot-subtle opacity-20 pointer-events-none" />
               </div>
 
-              {/* Content */}
-              <div className="p-5">
-                {/* Credential tag + year — same style as tech-stack pills */}
-                <div className="flex items-center gap-2 mb-3">
+              {/* Content — right side */}
+              <div className="flex-1 min-w-0 space-y-1.5">
+                {/* Credential pill + year */}
+                <div className="flex items-center gap-2 flex-wrap">
                   <span className="text-[10px] font-medium text-zinc-400 bg-zinc-900 border border-white/[0.06] px-2 py-0.5 rounded">
                     {item.credential}
                   </span>
                   <span className="text-[11px] text-[#71717a]">{item.year}</span>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-sm sm:text-base font-bold text-[#f5f5f5] mb-1">
+                {/* Title with arrow */}
+                <h3 className="text-sm sm:text-base font-bold text-[#f5f5f5] flex items-center gap-1.5 flex-wrap">
                   {item.title}
+                  <ArrowRight className="w-3.5 h-3.5 text-[#71717a] shrink-0" />
                 </h3>
 
-                {/* Category */}
-                <p className="text-xs text-sky-400/90 font-medium mb-2">
-                  {item.category}
-                </p>
-
-                {/* One-sentence description */}
+                {/* Single-sentence description */}
                 <p className="text-xs text-[#a1a1aa] leading-relaxed">
                   {item.description}
                 </p>
