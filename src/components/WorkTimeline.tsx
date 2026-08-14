@@ -2,7 +2,12 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Globe } from "lucide-react";
+
+interface ProjectLink {
+  name: string;
+  url?: string;
+}
 
 interface TimelineItem {
   id: string;
@@ -10,10 +15,11 @@ interface TimelineItem {
   subtitle: string;
   period: string;
   location: string;
-  mode: string;
+  mode?: string;
   logo: string;
   bullets?: string[];
   skills?: string[];
+  projectLinks?: ProjectLink[];
 }
 
 const workItems: TimelineItem[] = [
@@ -57,21 +63,30 @@ const educationItems: TimelineItem[] = [
   {
     id: "mgu",
     title: "Mahatma Gandhi University",
-    subtitle: "Bachelor of Computer Applications (BCA)",
-    period: "2023 - 2026",
+    subtitle: "Bachelor, Computer Applications",
+    period: "2026",
     location: "Kottayam, Kerala",
-    mode: "Regular",
     logo: "/logos/mgu.png",
     bullets: [
-      "Core curriculum in Software Engineering, Data Structures, Web Systems, and Database Management Systems.",
-      "Focused on Full-Stack Web Development, Object-Oriented Programming, and Computer Architecture.",
+      "Completed coursework in programming, databases, and web development.",
+      "Built strong foundations in computer science and software engineering.",
+    ],
+    projectLinks: [
+      {
+        name: "Final Year Project: AgriConnect",
+        url: "https://github.com/emilvsaji/AgriConnect",
+      },
+      {
+        name: "2nd Year Project",
+        url: "https://github.com/emilvsaji/CareerBridge",
+      },
     ],
   },
   {
     id: "holycross",
     title: "Holy Cross HSS",
     subtitle: "Higher Secondary (Computer Science)",
-    period: "2021 - 2023",
+    period: "2021 – 2023",
     location: "Kottayam, Kerala",
     mode: "On Site",
     logo: "/logos/holycross.png",
@@ -166,7 +181,7 @@ export default function WorkTimeline() {
                           {item.period}
                         </p>
                         <p className="text-[11px] sm:text-xs text-[#71717a]">
-                          {item.location} • {item.mode}
+                          {item.location}{item.mode ? ` • ${item.mode}` : ""}
                         </p>
                       </div>
                       <ChevronDown
@@ -177,10 +192,10 @@ export default function WorkTimeline() {
                   </div>
 
                   {/* Expandable Details Drawer */}
-                  {isExpanded && item.bullets && (
+                  {isExpanded && (item.bullets || item.skills || item.projectLinks) && (
                     <div className="px-4 sm:px-6 pb-5 pt-1 pl-[4.25rem] sm:pl-[5rem] border-t border-white/[0.04] bg-white/[0.01] font-mono">
                       {/* Skills Tags */}
-                      {item.skills && (
+                      {item.skills && item.skills.length > 0 && (
                         <div className="flex flex-wrap gap-1.5 mb-3">
                           {item.skills.map((skill, sIdx) => (
                             <span
@@ -194,17 +209,49 @@ export default function WorkTimeline() {
                       )}
 
                       {/* Bullets List */}
-                      <ul className="space-y-1.5">
-                        {item.bullets.map((bullet, bIdx) => (
-                          <li
-                            key={bIdx}
-                            className="text-xs text-[#a1a1aa] flex items-start gap-2 leading-relaxed"
-                          >
-                            <span className="text-emerald-400 font-bold mt-0.5">•</span>
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      {item.bullets && item.bullets.length > 0 && (
+                        <ul className="space-y-1.5">
+                          {item.bullets.map((bullet, bIdx) => (
+                            <li
+                              key={bIdx}
+                              className="text-xs text-[#a1a1aa] flex items-start gap-2 leading-relaxed"
+                            >
+                              <span className="text-[#71717a] font-bold mt-0.5">•</span>
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {/* Project Links (Pills with Globe Icon) */}
+                      {item.projectLinks && item.projectLinks.length > 0 && (
+                        <div className="flex flex-wrap items-center gap-2 mt-3 pt-1">
+                          {item.projectLinks.map((proj, pIdx) => {
+                            const isExternal = proj.url?.startsWith("http");
+                            return proj.url ? (
+                              <a
+                                key={pIdx}
+                                href={proj.url}
+                                target={isExternal ? "_blank" : undefined}
+                                rel={isExternal ? "noopener noreferrer" : undefined}
+                                onClick={(e) => e.stopPropagation()}
+                                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 hover:bg-zinc-800 border border-white/[0.08] hover:border-white/20 text-xs text-[#a1a1aa] hover:text-[#f5f5f5] transition-all cursor-pointer shadow-sm group"
+                              >
+                                <Globe className="w-3.5 h-3.5 text-[#71717a] group-hover:text-white transition-colors" />
+                                <span>{proj.name}</span>
+                              </a>
+                            ) : (
+                              <span
+                                key={pIdx}
+                                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 border border-white/[0.08] text-xs text-[#a1a1aa]"
+                              >
+                                <Globe className="w-3.5 h-3.5 text-[#71717a]" />
+                                <span>{proj.name}</span>
+                              </span>
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
@@ -216,4 +263,3 @@ export default function WorkTimeline() {
     </section>
   );
 }
-
